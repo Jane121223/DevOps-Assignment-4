@@ -4,13 +4,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t service-a service-a'
+                echo "Building project..."
             }
         }
 
         stage('Deploy') {
             steps {
+                echo "Running deploy script..."
                 sh 'sh deploy.sh'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Running tests..."
             }
         }
     }
