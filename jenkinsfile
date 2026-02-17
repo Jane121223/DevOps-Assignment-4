@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'docker build -t service-a service-a'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'sh deploy.sh'
+            }
+        }
+    }
+}
